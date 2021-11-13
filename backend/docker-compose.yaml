@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+    ports: 
+      - 8000:8000
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DB_URL=postgresql://db:26257/app?sslmode=disable
+
+  db:
+    image: cockroachdb/cockroach:v21.1.11
+    command: start-single-node --insecure --accept-sql-without-tls --listen-addr=0.0.0.0
+    ports:
+      - 26257:26257
+      - 8080:8080
+    volumes:
+      - data:/cockroach/cockroach-data
+
+volumes:
+  data:
