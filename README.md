@@ -2,6 +2,10 @@
 
 ## Setup
 
+### Backend
+
+### Database
+
 Add the CockroachDB chart and install it on the cluster.
 
 ```
