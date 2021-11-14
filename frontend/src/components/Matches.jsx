@@ -1,5 +1,6 @@
 import React from "react";
 import { ButtonGroup, Button, Card, CardGroup } from "react-bootstrap";
+import getFullSummaryData from "../api/fullSummary";
 import imageLogos from "../img/imageLogos";
 import FadeInComponent from "./FadeInComponent";
 
@@ -31,10 +32,10 @@ const Matches = ({
   triggerUnload,
   triggerNextComponent,
 }) => {
-  const [currentSelection, setCurrentSelection] = React.useState(matches[0]);
-  const seeMore = () => {
+  const seeMore = async () => {
     triggerUnload();
-    triggerNextComponent();
+    const data = await getFullSummaryData();
+    triggerNextComponent(data);
   };
   const [showTitle, setShowTitle] = React.useState(false);
   const [showNextButton, setShowNextButton] = React.useState(false);
@@ -59,7 +60,9 @@ const Matches = ({
         })}
       </div>
       <FadeInComponent showComponent={showNextButton}>
-        <Button className="summary-button">Continue to full summary</Button>
+        <Button onClick={() => seeMore()} className="summary-button">
+          Continue to full summary
+        </Button>
       </FadeInComponent>
     </div>
   );

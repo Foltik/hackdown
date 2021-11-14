@@ -3,6 +3,7 @@ import Start from "./Start";
 import Matches from "./Matches";
 
 import FadeInComponent from "./FadeInComponent";
+import FullSummary from "./FullSummary";
 
 const Home = () => {
   const [state, setState] = React.useState(0);
@@ -11,6 +12,8 @@ const Home = () => {
   const [companies, setCompanies] = React.useState([]);
   const [companyNames, setCompanyNames] = React.useState([]);
   const [matchPercentages, setMatchPercentages] = React.useState(null);
+  const [reviews, setReviews] = React.useState([]);
+  const [people, setPeople] = React.useState([]);
   React.useEffect(() => {
     if (state === 0)
       setTimeout(() => {
@@ -38,7 +41,11 @@ const Home = () => {
     setShowComponent(true);
   };
 
-  const loadSummary = () => {
+  const loadSummary = (data) => {
+    setCompanies(data.companies);
+    setReviews(data.reviews);
+    setPeople(data.people);
+    setState(state + 1);
     setShowComponent(true);
   };
   const components = {
@@ -58,6 +65,7 @@ const Home = () => {
         percentMatch={matchPercentages}
       />
     ),
+    2: <FullSummary companies={companies} reviews={reviews} people={people} />,
   };
 
   return (

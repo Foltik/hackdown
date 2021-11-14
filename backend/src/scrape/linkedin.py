@@ -11,18 +11,20 @@ class LinkedInUser:
     schools_attended: list = None
     degrees: list = None
 
-driver = webdriver.Chrome()
 email = "hackdownteam@protonmail.com"
 password = "yEasDpHvcwnrA4G"
 
-def login():
-    actions.login(driver, email, password)
-
 def scrape_company(url: str) -> list:
+    driver = webdriver.Chrome()
+    actions.login(driver, email, password)
+    
     company = Company(url, driver=driver)
     return list([employee for employee in company.employees if employee is not None])
 
 def scrape_person(url: str) -> LinkedInUser:
+    driver = webdriver.Chrome()
+    actions.login(driver, email, password)
+
     person = Person(url, driver=driver)
     user = LinkedInUser()
 
@@ -57,6 +59,6 @@ def scrape_person(url: str) -> LinkedInUser:
     return user
 
 if __name__ == "__main__":
-    login()
     print(scrape_person("https://www.linkedin.com/in/smax253"))
+    print(scrape_person("https://www.linkedin.com/in/jack-foltz"))
     
