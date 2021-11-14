@@ -1,7 +1,8 @@
 from dataclasses import dataclass
 from parse import *
-from .linkedin_scraper import Company, Person, actions
+from linkedin_scraper import Company, Person, actions
 from selenium import webdriver
+import json
 
 @dataclass
 class LinkedInUser:
@@ -58,7 +59,22 @@ def scrape_person(url: str) -> LinkedInUser:
     
     return user
 
+def serialize_user(user: LinkedInUser, company: str):
+    return json.dumps({
+        'name': user.name,
+        'company': company,
+        'years_of_experience': user.years_of_experience,
+        'skills': user.skills,
+        'schools_attended': user.schools_attended,
+        'degrees': user.degrees
+    })
+
 if __name__ == "__main__":
-    print(scrape_person("https://www.linkedin.com/in/smax253"))
-    print(scrape_person("https://www.linkedin.com/in/jack-foltz"))
+    company = "salesforce"
+
+    print(serialize_user(scrape_person("https://www.linkedin.com/in/shariar-kabir/"), company))
+    print(serialize_user(scrape_person("https://www.linkedin.com/in/sherrieshen/"), company))
+    print(serialize_user(scrape_person("https://www.linkedin.com/in/hanming-yang-8275b017b/"), company))
+    print(serialize_user(scrape_person("https://www.linkedin.com/in/shabbir-khan-sk/"), company))
+    print(serialize_user(scrape_person("https://www.linkedin.com/in/ethanyehuda/"), company))
     
