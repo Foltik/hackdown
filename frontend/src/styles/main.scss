@@ -101,8 +101,22 @@ body,
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 .selector-logo {
   width: 10vh;
   height: auto;
+}
+.home-title {
+    font-size: 50px;
+}
+.matchbox-logo {
+    width: 10vw;
+}
+.home-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-right: 10vw;
 }

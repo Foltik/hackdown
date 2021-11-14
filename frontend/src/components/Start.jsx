@@ -3,6 +3,7 @@ import { Card, Button } from "react-bootstrap";
 import submitLinkedin from "../api/submitLinkedin";
 import submitResumeAPI from "../api/submitResume";
 import FadeInComponent from "./FadeInComponent";
+import matchbox from "../img/matchbox.png";
 
 const Start = ({ triggerUnload, triggerNextComponent }) => {
   const [resumeFile, setResumeFile] = React.useState(null);
@@ -29,9 +30,16 @@ const Start = ({ triggerUnload, triggerNextComponent }) => {
 
   return (
     <div className="stage-one">
-      <FadeInComponent showComponent={showTitle}>Title</FadeInComponent>
+      <FadeInComponent className="home-title" showComponent={showTitle}>
+        <div className="home-header">
+          <img className="matchbox-logo" src={matchbox}/>
+          <div>Matchbox</div>
+        </div>
+      </FadeInComponent>
       <FadeInComponent showComponent={showDesc}>
-        Long ass description
+        Welcome to Matchbox! This is a service that will match you with companies based on your skillsets. 
+        We have sourced company data across several sources such as Glassdoor and Linkedin to aggregate popular sentiment and valued skills at each company. 
+        To begin, please submit your resume or provide a link to your LinkedIn profile!
       </FadeInComponent>
       <div className="form-container">
         <FadeInComponent showComponent={showFormOne}>
