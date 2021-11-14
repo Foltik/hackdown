@@ -1,3 +1,4 @@
+import json
 import tornado.web
 
 from util import transact, api
@@ -5,7 +6,7 @@ from util import transact, api
 class DataHandler(tornado.web.RequestHandler):
     @api
     def post(self, body):
-        return {'foo': 'bar'}
+        return get_test()
 
 @transact
 def insert_company(con, c):
@@ -63,4 +64,35 @@ def get_reviews_by_company(con, c):
         cur.execute(f"SELECT * FROM review WHERE company_id = {c['id']}")
         rows = cur.fetchall()
         con.commit()
-        return rows
+        return json.loads[rows[0][0]]
+
+@transact
+def set_test(con, company, obj):
+    j = json.dumps(obj)
+    delete_test()
+    with con.cursor() as cur:
+        cur.execute(f"INSERT INTO test (company, value) VALUES ('{company}', '{j}')")
+    con.commit()
+
+@transact
+def delete_test(con, company):
+    with con.cursor() as cur:
+        cur.execute(f"DELETE FROM test WHERE company = '{company}'")
+    con.commit()
+
+@transact
+def get_test(con, company):
+    with con.cursor() as cur:
+        cur.execute(f"SELECT * FROM test")
+        rows = cur.fetchall()
+        con.commit()
+        j = rows[0][1]
+        return json.loads(j)
+
+@transact
+def get_tests(con):
+    with con.cursor() as cur:
+        cur.execute(f"SELECT * FROM test")
+        rows = cur.fetchall()
+        con.commit()
+        return [json.loads(r[1]) for r in rows]

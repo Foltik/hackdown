@@ -9,7 +9,13 @@ import data
 
 class PopulateHandler(tornado.web.RequestHandler):
     @api
-    def post(self, c):
-        data.insert_company(c)
-        c = data.get_company_by_name(c['name'])
-        print(c['id'], name, logo)
+    def post(self, company):
+        reviews = glassdoor.scrape(company)
+        for r in reviews:
+            r['source'] = 'glassdoor'
+            r['sentiment'] = 0.5
+
+        data.delete_test(company)
+        data.set_test(company, {
+            'reviews': reviews
+        })

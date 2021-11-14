@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
 regex = re.compile('[^a-zA-Z]')
 
-def scrape(company, page_limit=10):
+def scrape(company, page_limit=5):
     output = []
     #Search company
     search_result_url = f'https://www.glassdoor.com/Search/results.htm?keyword={company}'

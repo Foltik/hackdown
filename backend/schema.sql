@@ -25,3 +25,8 @@ CREATE TABLE IF NOT EXISTS person (
     degrees VARCHAR,
     skills VARCHAR
 );
+
+CREATE TABLE IF NOT EXISTS test (
+    company VARCHAR PRIMARY KEY,
+    value VARCHAR
+);

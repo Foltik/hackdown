@@ -5,7 +5,7 @@ import tornado.web
 
 from populate import PopulateHandler
 
-from similarity.resume import ResumeHandler
+# from similarity.resume import ResumeHandler
 from similarity.linkedin import LinkedinHandler
 
 from data import DataHandler
@@ -20,7 +20,7 @@ app = tornado.web.Application([
     (r"/populate", PopulateHandler),
 
     (r"/linkedin", LinkedinHandler),
-    (r"/resume", ResumeHandler),
+    # (r"/resume", ResumeHandler),
 
     (r"/data", DataHandler),
 ], **{
