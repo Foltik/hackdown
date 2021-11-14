@@ -55,7 +55,7 @@ const Start = ({ triggerUnload, triggerNextComponent }) => {
                   onChange={(event) => setResumeFile(event.target.files[0])}
                 />
               </Card.Text>
-              <Button
+              <Button variant="outline-primary"
                 onClick={(e) => {
                   e.preventDefault();
                   submitAction("resume");
@@ -75,7 +75,7 @@ const Start = ({ triggerUnload, triggerNextComponent }) => {
                 id="linkedin-profile"
                 onChange={(event) => setProfileLink(event.target.value)}
               />
-              <Button
+              <Button variant="outline-primary"
                 onClick={(e) => {
                   e.preventDefault();
                   submitAction("linkedin");

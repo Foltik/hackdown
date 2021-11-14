@@ -1,12 +1,14 @@
 import React from "react";
-import { ButtonGroup, Button, Card, CardGroup } from "react-bootstrap";
+import { ButtonGroup, Button, Card, CardGroup, Spinner } from "react-bootstrap";
 import getFullSummaryData from "../api/fullSummary";
 import imageLogos from "../img/imageLogos";
 import FadeInComponent from "./FadeInComponent";
 
 const CompanyCard = ({ companyName, matchPercentage, imageLogo, index }) => {
   const [showCard, setShowCard] = React.useState(false);
-  setTimeout(() => setShowCard(true), 500 + (4 - index) * 1);
+  setTimeout(() => {
+    setShowCard(true);}, 500 + (4 - index) * 1000
+  );
   return (
     <FadeInComponent showComponent={showCard}>
       <Card className="company-card">
@@ -39,11 +41,19 @@ const Matches = ({
   };
   const [showTitle, setShowTitle] = React.useState(false);
   const [showNextButton, setShowNextButton] = React.useState(false);
-  setTimeout(() => setShowTitle(true), 500);
-  setTimeout(() => setShowNextButton(true), 6000);
+  const [loading, setLoading] = React.useState(true);
 
-  return (
+  setTimeout(() => {
+    setShowTitle(true);
+    setLoading(false);
+  }, 2000);
+  setTimeout(() => setShowNextButton(true), 6000);
+  if(loading) return (<Spinner animation="border" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </Spinner>);
+  return (  
     <div className="stage-two">
+      
       <FadeInComponent showComponent={showTitle} className="matches-title">
         These are your top four matches:
       </FadeInComponent>
