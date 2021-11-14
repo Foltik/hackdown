@@ -1,12 +1,12 @@
 # This file contains the definitions needed to expose cockroachdb in a namespace
 # other than the one it's running in.
 # To use this file:
-# 1. Replace "us-east-a" in this file with the name of the namespace that
+# 1. Replace "YOUR_ZONE_HERE" in this file with the name of the namespace that
 #    cockroachdb is running in in the given cluster.
 # 2. Create a secret containing the certificates in the namespace that you want
 #    to expose the service in (the "default" namespace is assumed by the
 #    certificate creation commands in setup.py):
-#      kubectl create secret generic cockroachdb.client.root --namespace=us-east-a --from-file=certs
+#      kubectl create secret generic cockroachdb.client.root --namespace=YOUR_ZONE_HERE --from-file=certs
 # 3. Create the resources in this cluster:
 #      kubectl apply -f external-name-svc.yaml
 #
@@ -24,7 +24,7 @@ metadata:
   name: cockroachdb-public
 spec:
   type: ExternalName
-  externalName: cockroachdb-public.us-east-a.svc.cluster.local
+  externalName: cockroachdb-public.YOUR_ZONE_HERE.svc.cluster.local
 ---
 apiVersion: v1
 kind: ServiceAccount
