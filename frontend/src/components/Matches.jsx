@@ -6,7 +6,7 @@ import FadeInComponent from "./FadeInComponent";
 
 const CompanyCard = ({ companyName, matchPercentage, imageLogo, index }) => {
   const [showCard, setShowCard] = React.useState(false);
-  setTimeout(() => setShowCard(true), 500 + (4 - index) * 1000);
+  setTimeout(() => setShowCard(true), 500 + (4 - index) * 1);
   return (
     <FadeInComponent showComponent={showCard}>
       <Card className="company-card">

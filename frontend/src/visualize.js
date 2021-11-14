@@ -80,8 +80,10 @@ dc.wordCloud = function(parent, chartGroup) {
     // tags pre-render and post-render
     var _preRenderTagLength = -1;
 
-    _chart.width(_size[0]);
-    _chart.height(_size[1]);
+    // _chart.width(_size[0]);
+    // _chart.height(_size[1]);
+    _chart.width(600);
+    _chart.height(350);
 
     // Accessors
     _chart.size = function(s) {
@@ -462,8 +464,7 @@ const body_group = body_dim.group();
 //     .group(sentiment_group);
 
 thing = dc.wordCloud('#wordchart')
-    .width(600)
-    .height(350)
+    .size([350, 600])
     .valueAccessor(d => d.body)
     .rotate(() => (Math.random() * 120) - 60)
     .dimension(body_dim)

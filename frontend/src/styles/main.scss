@@ -7,6 +7,7 @@ body,
   height: 100%;
   width: 100%;
   background-color: #ebebeb;
+  overflow:hidden;
 }
 .App {
   background-color: #ebebeb;
@@ -163,10 +164,10 @@ body,
 }
 
 .chart {
-  background-color: blue;
-  width: 600px;
+  // background-color: blue;
+  width: 480px;
   height: 350px;
-  margin: 0 20px 0 20px;
+  margin: 0 40px 0 40px;
 }
 
 #linkedin-profile {
@@ -180,7 +181,7 @@ body,
   box-shadow: 3px 3px 5px #808080;
 }
 
-.btn-primary {
+.btn-secondary {
   background-color: #fff !important;
   border: 0;
 }

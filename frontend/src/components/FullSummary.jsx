@@ -30,9 +30,14 @@ const FullSummary = ({ companies, reviews, people }) => {
             const imageKey = companyName.toLowerCase();
             return (
               <Button
+                variant='secondary'
                 className="buton"
                 key={companyName}
-                onClick={() => setCurrentCompany(companyName)}
+                onClick={() => {
+                  console.log("ASDFAEWR", companyName);
+                  setCurrentCompany(companyName);
+                  window.companystuff(companyName);
+                }}
               >
                 <img
                   className="selector-logo"
@@ -49,10 +54,12 @@ const FullSummary = ({ companies, reviews, people }) => {
           <div className="chart-row">
             <FadeInComponent showComponent={showGraph > 1}><div id="a" className="chart"></div></FadeInComponent>
             <FadeInComponent showComponent={showGraph > 2}><div id="b" className="chart"></div></FadeInComponent>
+            <FadeInComponent showComponent={showGraph > 3}><div id="c" className="chart"></div></FadeInComponent>
           </div>
           <div className="chart-row">
-            <FadeInComponent showComponent={showGraph > 4}><div id="c" className="chart"></div></FadeInComponent>
-            <FadeInComponent showComponent={showGraph > 5}><div id="d" className="chart"></div></FadeInComponent>
+            <FadeInComponent showComponent={showGraph > 4}><div id="d" className="chart"></div></FadeInComponent>
+            <FadeInComponent showComponent={showGraph > 5}><div id="e" className="chart"></div></FadeInComponent>
+            <FadeInComponent showComponent={showGraph > 6}><div id="f" className="chart"></div></FadeInComponent>
           </div>
         </div>
       </FadeInComponent>

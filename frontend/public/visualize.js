@@ -453,14 +453,17 @@ const company_group_r = company_dim_r.group();
 const company_dim_p = pndx.dimension(d => d.company);
 const company_group_p = company_dim_p.group();
 
-const skill_dim = pndx.dimension(d => d.skill);
-const skill_group = skill_dim.group();
-
 const sentiment_dim = rndx.dimension(d => d.sentiment > 0.5 ? 'Positive' : 'Negative');
 const sentiment_group = sentiment_dim.group();
 
 const body_dim = rndx.dimension(d => d.body);
 const body_group = body_dim.group();
+
+const degree_dim = pndx.dimension(d => d.degree);
+const degree_group = degree_dim.group();
+
+const skill_dim = pndx.dimension(d => d.skill);
+const skill_group = skill_dim.group();
 
 // const degree_dim = pndx.dim(d => d.degree);
 
@@ -469,18 +472,30 @@ const body_group = body_dim.group();
 //     .group(sentiment_group);
 
 window.dostuff = () => {
-    thing = dc.wordCloud('#a')
+    dc.wordCloud('#a')
         .valueAccessor(d => d.body)
         .rotate(() => (Math.random() * 120) - 60)
         .dimension(body_dim)
         .group(body_group);
 
-    // const body = dc.barChart('#wordchart')
-    //     .x(d3.scaleBand())
-    //     .xAxisLabel('company')
-    //     .yAxisLabel('number')
-    //     .dimension(company_dim)
-    //     .group(company_dim.group());
+    dc.pieChart('#d')
+        .width(480)
+        .height(350)
+        .dimension(degree_dim)
+        .group(degree_group);
+
+    dc.pieChart('#e')
+        .width(480)
+        .height(350)
+        .dimension(skill_dim)
+        .group(skill_group);
+
+    dc.renderAll();
+};
+
+window.companystuff = c => {
+    company_dim_p.filter(c);
+    company_dim_r.filter(c);
 
     dc.renderAll();
 }

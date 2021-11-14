@@ -1,13 +1,13 @@
 version: '3.8'
 services:
-  app:
-    build:
-      context: .
-    ports: 
-      - 8000:8000
-    environment:
-      - PYTHONUNBUFFERED=1
-      - DB_URL=postgresql://db:26257/app?sslmode=disable
+  #app:
+  #  build:
+  #    context: .
+  #  ports: 
+  #    - 8000:8000
+  #  environment:
+  #    - PYTHONUNBUFFERED=1
+  #    - DB_URL=postgresql://db:26257/app?sslmode=disable
 
   db:
     image: cockroachdb/cockroach:v21.1.11
