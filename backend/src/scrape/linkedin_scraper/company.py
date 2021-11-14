@@ -154,7 +154,7 @@ class Company(Scraper):
                 total.append(self.__parse_employee__(res))
 
         results_li_len = len(results_li)
-        while is_loaded(results_li_len):
+        while is_loaded(results_li_len) and len(total) <= 20:
             try:
                 driver.find_element_by_xpath(next_xpath).click()
             except:

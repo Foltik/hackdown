@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from parse import *
-from linkedin import Company, Person, actions
+from .linkedin_scraper import Company, Person, actions
 from selenium import webdriver
 
 @dataclass
@@ -17,7 +17,7 @@ password = "yEasDpHvcwnrA4G"
 def scrape_company(url: str) -> list:
     driver = webdriver.Chrome()
     actions.login(driver, email, password)
-    
+
     company = Company(url, driver=driver)
     return list([employee for employee in company.employees if employee is not None])
 
