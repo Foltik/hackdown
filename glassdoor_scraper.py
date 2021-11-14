@@ -15,7 +15,6 @@ search_results = search_results_page.find(id="Discover")
 company_page_url_ending = search_results.find_all('a')[0].get('href')
 company_name = company_page_url_ending.split('-')[2]
 company_id = company_page_url_ending.split("EI_I")[1].split(".")[0]
-#Temporary until we can find a way to get company id easily
 
 for i in range(page_limit):
     company_page_url = f'https://www.glassdoor.com/Reviews/{company_name}-Reviews-{company_id}_P{i}.htm'
