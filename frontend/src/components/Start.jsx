@@ -44,10 +44,10 @@ const Start = ({ triggerUnload, triggerNextComponent }) => {
         your resume or provide a link to your LinkedIn profile!
       </FadeInComponent>
       <div className="form-container">
-        <FadeInComponent showComponent={showFormOne}>
+        <FadeInComponent showComponent={showFormOne} className="home-component">
           <Card className="home-card">
             <Card.Body>
-              <Card.Title>Submit your resume</Card.Title>
+              <Card.Title className="home-card-title">Submit your Resume</Card.Title>
               <Card.Text>
                 <input
                   type="file"
@@ -66,12 +66,13 @@ const Start = ({ triggerUnload, triggerNextComponent }) => {
             </Card.Body>
           </Card>
         </FadeInComponent>
-        <FadeInComponent showComponent={showFormTwo}>
+        <FadeInComponent showComponent={showFormTwo} className="home-component">
           <Card className="home-card">
             <Card.Body>
-              <Card.Title>Provide a link to your Linkedin profile</Card.Title>
+              <Card.Title className="home-card-title">Submit your LinkedIn Profile</Card.Title>
               <input
                 type="text"
+                className="linkedin-input"
                 id="linkedin-profile"
                 onChange={(event) => setProfileLink(event.target.value)}
               />

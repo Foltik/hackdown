@@ -22,7 +22,7 @@ body,
 }
 .form-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
 }
 .form-container form {
@@ -56,8 +56,8 @@ body,
   flex-direction: column;
 }
 .company-card-logo {
-  padding: 5px;
-  width: 10vh;
+  padding-top: 3vh;  
+  width: 8vh;
   height: auto;
 }
 .card-container {
@@ -95,17 +95,27 @@ body,
 .matches-title {
   font-size: 30px;
 }
+.home-component {
+    padding: 1vw;
+}
 .home-card {
   width: 25vw;
   height: 25vh;
   border-radius: 8px;
   box-shadow: 2px 2px 5px #808080;
 }
+.home-card-title {
+    font-size: 25px;
+}
 .card-body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  padding: 2vw;
+}
+.linkedin-input {
+    width: 80%;
 }
 .selector-logo {
   width: 10vh;
@@ -122,7 +132,7 @@ body,
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  padding-right: 10vw;
+  padding-right: 8vw;
 }
 
 .comtainer {
