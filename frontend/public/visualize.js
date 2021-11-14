@@ -1856,7 +1856,19 @@ const data = {
                 "Bachelor's degree",
                 "High School Diploma"
             ]
-}]};
+            },
+            {"name": "Shabbir Khan", "company": "facebook", "years_of_experience": 0, "skills": ["C (Programming Language)", "Volleyball", "WordPress", "English"], "schools_attended": ["Monmouth University", "Passaic County Technical Institute"], "degrees": ["Bachelor of Science - BS", "Highschool"]},
+        {"name": "Hanming Yang", "company": "facebook", "years_of_experience": 1, "skills": [ "Linux", "Mandarin", "Java", "HTML", "Python"], "schools_attended": ["Middlebury College", "United World College Changshu China", "YK Pao School"], "degrees": ["Undergraduate", "IB Bilingual Diploma"]},
+        {"name": "Shariar Kabir", "company": "facebook", "years_of_experience": 1, "skills": ["Git", "SQL", "Flask", "PostgreSQL", "MongoDB", "Express.js", "Ruby", "Python (Programming Language)", "ASP.NET", "Software Development", "Node.js"], "schools_attended": ["Hunter College", "Stuyvesant High School"], "degrees": ["Bachelor of Science - BS"]},
+        {"name": "Sherrie Shen", "company": "facebook", "years_of_experience": 1, "skills": [], "schools_attended": ["Franklin W. Olin College of Engineering", "The Bryn Mawr School"], "degrees": ["Bachelor of Science in Engineering", "High School Diploma"]},
+        {"name": "Shabbir Khan", "company": "amazon", "years_of_experience": 0, "skills": ["Microsoft Azure", "Java", "ASP.NET Core", "Data Analysis", "css", "Express.js", "Ruby", "Python (Programming Language)", "ASP.NET", "Software Development", "Node.js"], "schools_attended": ["Monmouth University", "Passaic County Technical Institute"], "degrees": ["Bachelor of Science - BS", "Highschool"]},
+        {"name": "Hanming Yang", "company": "amazon", "years_of_experience": 2, "skills": ["C (Programming Language)", "Volleyball", "WordPress", "English", "Linux", "Mandarin", "Java", "HTML", "Python", "Back-End Web Development", "Cascading Style Sheets (CSS)", "JavaScript"], "schools_attended": ["Middlebury College", "United World College Changshu China", "YK Pao School"], "degrees": ["Undergraduate", "IB Bilingual Diploma"]},
+        {"name": "Shariar Kabir", "company": "amazon", "years_of_experience": 3, "skills": ["Git", "HTML5", "Github", "Ruby on Rails", "JavaScript", "ASP.NET MVC", "Python", "React.js", ], "schools_attended": ["Hunter College", "Stuyvesant High School"], "degrees": ["Bachelor of Science - BS"]},
+        {"name": "Sherrie Shen", "company": "amazon", "years_of_experience": 7, "skills": [], "schools_attended": ["Franklin W. Olin College of Engineering", "The Bryn Mawr School"], "degrees": ["Bachelor of Science in Engineering", "High School Diploma"]}
+    
+    
+
+]};
 
 let f = (a, b) => [].concat(...a.map(a => b.map(b => [].concat(a, b))));
 let cartesian = (a, b, ...c) => b ? cartesian(f(a, b), ...c) : a;``
