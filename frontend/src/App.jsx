@@ -5,6 +5,7 @@ import Summary from "./components/Summary/Summary";
 import ResumeMatch from "./components/Matching/ResumeMatch";
 import Home from "./components/Home";
 import CompanySummary from "./components/Summary/CompanySummary";
+import ResumeMatchResult from "./components/Matching/ResumeMatchResult";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/summary/:companyName" element={<CompanySummary />} />
 
         <Route path="/summary" element={<Summary />}></Route>
+        <Route path="/match/:id" element={<ResumeMatchResult />} />
         <Route path="/match" element={<ResumeMatch />} />
         <Route path="/" element={<Home />} />
       </Routes>
