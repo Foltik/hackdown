@@ -14,8 +14,14 @@ def transact(fn):
 
 def api(fn):
     def wrapper(self):
-        body = None if self.request.body == '' else json.loads(self.request.body)
-        resp = fn(body)
+        body = None
+        try:
+            if self.request.body != '':
+                body = json.loads(self.request.body)
+        except:
+            pass
+
+        resp = fn(self, body)
         self.write(json.dumps(resp))
 
     return wrapper

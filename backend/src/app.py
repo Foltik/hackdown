@@ -4,9 +4,12 @@ import os
 import time
 import random
 import time
+import tempfile
 
 import tornado.ioloop
 import tornado.web
+
+from pyresparser import ResumeParser
 
 from util import transact, api
 
@@ -43,6 +46,24 @@ class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("index.html")
 
+class ResumeHandler(tornado.web.RequestHandler):
+    @api
+    def post(self):
+        file = self.request.files['resume'][0]
+
+        name = file['filename']
+        body = file['body']
+
+        with tempfile.TemporaryFile() as temp:
+            temp.write(body)
+            resume = ResumeParser(temp.name)
+            print(resume)
+
+        print("file:", file)
+        print("name:", name)
+
+        return {'id': 177013}
+
 class CreateHandler(tornado.web.RequestHandler):
     def get(self):
         create_test()
@@ -60,6 +81,7 @@ class GetHandler(tornado.web.RequestHandler):
 
 app = tornado.web.Application([
     (r"/", MainHandler),
+    (r"/resume", ResumeHandler),
     (r"/create", CreateHandler),
     (r"/delete", DeleteHandler),
     (r"/get", GetHandler)

@@ -10,4 +10,7 @@ COPY src ./src
 COPY build ./build
 
 RUN pip install --no-cache-dir -r requirements.txt
+RUN python -m spacy download en_core_web_sm
+RUN Python -m nltk.downloader words
+
 CMD ["python", "./src/app.py"]
