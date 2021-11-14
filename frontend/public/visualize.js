@@ -1,3 +1,10 @@
+console.log("HI HI HI HI HI ");
+console.log("HI HI HI HI HI ");
+console.log("HI HI HI HI HI ");
+console.log("HI HI HI HI HI ");
+console.log("HI HI HI HI HI ");
+console.log("HI HI HI HI HI ");
+
 const companies = ['Google', 'Amazon', 'Facebook', 'Microsoft', 'Apple'];
 
 const rand_id = () => Math.floor(Math.random() * 1000000)
@@ -461,17 +468,19 @@ const body_group = body_dim.group();
 //     .dimension(sentiment_dim)
 //     .group(sentiment_group);
 
-thing = dc.wordCloud('#wordchart')
-    .valueAccessor(d => d.body)
-    .rotate(() => (Math.random() * 120) - 60)
-    .dimension(body_dim)
-    .group(body_group);
+window.dostuff = () => {
+    thing = dc.wordCloud('#a')
+        .valueAccessor(d => d.body)
+        .rotate(() => (Math.random() * 120) - 60)
+        .dimension(body_dim)
+        .group(body_group);
 
-// const body = dc.barChart('#wordchart')
-//     .x(d3.scaleBand())
-//     .xAxisLabel('company')
-//     .yAxisLabel('number')
-//     .dimension(company_dim)
-//     .group(company_dim.group());
+    // const body = dc.barChart('#wordchart')
+    //     .x(d3.scaleBand())
+    //     .xAxisLabel('company')
+    //     .yAxisLabel('number')
+    //     .dimension(company_dim)
+    //     .group(company_dim.group());
 
-dc.renderAll();
+    dc.renderAll();
+}
