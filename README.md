@@ -2,14 +2,20 @@
 
 ## Setup
 
-### Backend
-
 ### Database
 
-Add the CockroachDB chart and install it on the cluster.
+Create the Kubernetes clusters and add them to the zones in `db/setup.py`
 
+Then run the script to create the multi-cluster cockroachdb deployment:
+
+```console
+python2 db/setup.py
 ```
-helm repo add cockroachdb https://charts.cockroachdb.com/
-helm repo update
-helm install db cockroachdb/cockroachdb --values db.yaml
+
+### Backend
+
+Create the deployments for the backend:
+
+```console
+kubectl apply -f app/deployment.yaml
 ```
