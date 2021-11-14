@@ -71,6 +71,10 @@ body,
   border-radius: 8px;
   box-shadow: 3px 3px 5px #808080;
 }
+.company-card:hover {
+  transform: scale(1.1);
+  transition: transform linear 0.3s;
+}
 .company-card > div {
   flex: 0 0 auto;
 }
@@ -82,4 +86,8 @@ body,
 }
 .matches-title {
   font-size: 30px;
+}
+.selector-logo {
+  width: 10vh;
+  height: auto;
 }
