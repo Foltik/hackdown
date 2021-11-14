@@ -1,4 +1,4 @@
-FROM python:3.11-rc-slim
+FROM python:3-slim
 
 RUN apt-get update \
     && apt-get -y install libpq-dev gcc \
@@ -11,6 +11,7 @@ COPY build ./build
 
 RUN pip install --no-cache-dir -r requirements.txt
 RUN python -m spacy download en_core_web_sm
-RUN Python -m nltk.downloader words
+RUN python -m nltk.downloader words
+RUN python -m nltk.downloader stopwords
 
 CMD ["python", "./src/app.py"]
