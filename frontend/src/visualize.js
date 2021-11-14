@@ -462,6 +462,8 @@ const body_group = body_dim.group();
 //     .group(sentiment_group);
 
 thing = dc.wordCloud('#wordchart')
+    .width(600)
+    .height(350)
     .valueAccessor(d => d.body)
     .rotate(() => (Math.random() * 120) - 60)
     .dimension(body_dim)

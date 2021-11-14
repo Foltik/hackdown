@@ -5,7 +5,7 @@ import imageLogos from "../img/imageLogos";
 
 const FullSummary = ({ companies, reviews, people }) => {
   const [currentCompany, setCurrentCompany] = React.useState(companies[0].name);
-  const [showSidebar, setShowSidebar] = React.useState(false);
+  const [showSidebar, setShowSidebar] = React.useState(true);
   const [showGraph, setShowGraph] = React.useState(7);
   // setShowGraph(7);
 
@@ -22,7 +22,7 @@ const FullSummary = ({ companies, reviews, people }) => {
   // }, 200);
 
   return (
-    <div className="container">
+    <div className="comtainer">
       <FadeInComponent className="company-selector" showComponent={showSidebar}>
         <ButtonGroup vertical className="company-button-group">
           {companies.map((company) => {
@@ -30,6 +30,7 @@ const FullSummary = ({ companies, reviews, people }) => {
             const imageKey = companyName.toLowerCase();
             return (
               <Button
+                className="buton"
                 key={companyName}
                 onClick={() => setCurrentCompany(companyName)}
               >
@@ -46,26 +47,12 @@ const FullSummary = ({ companies, reviews, people }) => {
       <FadeInComponent className="card-container" showComponent={!!showGraph}>
         <div className="chart-container">
           <div className="chart-row">
-            <FadeInComponent showComponent={showGraph > 1}>
-              <div id="a" className="chart"></div>
-            </FadeInComponent>
-            <FadeInComponent showComponent={showGraph > 2}>
-              <div id="b" className="chart"></div>
-            </FadeInComponent>
-            <FadeInComponent showComponent={showGraph > 3}>
-              <div id="c" className="chart"></div>
-            </FadeInComponent>
+            <FadeInComponent showComponent={showGraph > 1}><div id="a" className="chart"></div></FadeInComponent>
+            <FadeInComponent showComponent={showGraph > 2}><div id="b" className="chart"></div></FadeInComponent>
           </div>
           <div className="chart-row">
-            <FadeInComponent showComponent={showGraph > 4}>
-              <div id="d" className="chart"></div>
-            </FadeInComponent>
-            <FadeInComponent showComponent={showGraph > 5}>
-              <div id="e" className="chart"></div>
-            </FadeInComponent>
-            <FadeInComponent showComponent={showGraph > 6}>
-              <div id="f" className="chart"></div>
-            </FadeInComponent>
+            <FadeInComponent showComponent={showGraph > 4}><div id="c" className="chart"></div></FadeInComponent>
+            <FadeInComponent showComponent={showGraph > 5}><div id="d" className="chart"></div></FadeInComponent>
           </div>
         </div>
       </FadeInComponent>
