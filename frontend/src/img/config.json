@@ -10263,6 +10263,10 @@
             "Bachelor's degree",
             "High School Diploma"
         ]
-        }
+        },
+        {"name": "Shabbir Khan", "company": "salesforce", "years_of_experience": 0, "skills": [], "schools_attended": ["Monmouth University", "Passaic County Technical Institute"], "degrees": ["Bachelor of Science - BS", "Highschool"]},
+        {"name": "Hanming Yang", "company": "salesforce", "years_of_experience": 1, "skills": ["C (Programming Language)", "Volleyball", "WordPress", "English", "Linux", "Mandarin", "Java", "HTML", "Python", "Back-End Web Development", "Cascading Style Sheets (CSS)", "JavaScript"], "schools_attended": ["Middlebury College", "United World College Changshu China", "YK Pao School"], "degrees": ["Undergraduate", "IB Bilingual Diploma"]},
+        {"name": "Shariar Kabir", "company": "salesforce", "years_of_experience": 1, "skills": ["Git", "SQL", "Flask", "PostgreSQL", "MongoDB", "HTML5", "Github", "Ruby on Rails", "JavaScript", "ASP.NET MVC", "Python", "React.js", "Microsoft Azure", "Java", "ASP.NET Core", "Data Analysis", "css", "Express.js", "Ruby", "Python (Programming Language)", "ASP.NET", "Software Development", "Node.js"], "schools_attended": ["Hunter College", "Stuyvesant High School"], "degrees": ["Bachelor of Science - BS"]},
+        {"name": "Sherrie Shen", "company": "salesforce", "years_of_experience": 1, "skills": [], "schools_attended": ["Franklin W. Olin College of Engineering", "The Bryn Mawr School"], "degrees": ["Bachelor of Science in Engineering", "High School Diploma"]}
     ]
   }
