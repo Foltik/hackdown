@@ -1,5 +1,0 @@
-conf:
-  cache: "4Gi"
-  max-sql-memory: "4Gi"
-tls:
-  enabled: false

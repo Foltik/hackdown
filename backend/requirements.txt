@@ -1,0 +1,2 @@
+tornado==6.1
+psycopg2==2.9.2
