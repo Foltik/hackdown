@@ -1,4 +1,4 @@
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import { Button, ButtonGroup } from "react-bootstrap";
 import FadeInComponent from "./FadeInComponent";
 import imageLogos from "../img/imageLogos";
@@ -13,9 +13,9 @@ const FullSummary = ({ companies, reviews, people }) => {
 
   useEffect(() => setTimeout(() => window.dostuff(), 1000), []);
 
-  // setTimeout(() => {
-  //   setShowSidebar(true);
-  // }, 500);
+  setTimeout(() => {
+    setShowSidebar(true);
+  }, 500);
 
   // setTimeout(() => {
   //   setShowGraph(showGraph + 1)
@@ -46,17 +46,29 @@ const FullSummary = ({ companies, reviews, people }) => {
       <FadeInComponent className="card-container" showComponent={!!showGraph}>
         <div className="chart-container">
           <div className="chart-row">
-            <FadeInComponent showComponent={showGraph > 1}><div id="a" className="chart"></div></FadeInComponent>
-            <FadeInComponent showComponent={showGraph > 2}><div id="b" className="chart"></div></FadeInComponent>
-            <FadeInComponent showComponent={showGraph > 3}><div id="c" className="chart"></div></FadeInComponent>
+            <FadeInComponent showComponent={showGraph > 1}>
+              <div id="a" className="chart"></div>
+            </FadeInComponent>
+            <FadeInComponent showComponent={showGraph > 2}>
+              <div id="b" className="chart"></div>
+            </FadeInComponent>
+            <FadeInComponent showComponent={showGraph > 3}>
+              <div id="c" className="chart"></div>
+            </FadeInComponent>
           </div>
           <div className="chart-row">
-            <FadeInComponent showComponent={showGraph > 4}><div id="d" className="chart"></div></FadeInComponent>
-            <FadeInComponent showComponent={showGraph > 5}><div id="e" className="chart"></div></FadeInComponent>
-            <FadeInComponent showComponent={showGraph > 6}><div id="f" className="chart"></div></FadeInComponent>
+            <FadeInComponent showComponent={showGraph > 4}>
+              <div id="d" className="chart"></div>
+            </FadeInComponent>
+            <FadeInComponent showComponent={showGraph > 5}>
+              <div id="e" className="chart"></div>
+            </FadeInComponent>
+            <FadeInComponent showComponent={showGraph > 6}>
+              <div id="f" className="chart"></div>
+            </FadeInComponent>
           </div>
         </div>
-    </FadeInComponent>
+      </FadeInComponent>
     </div>
   );
 };

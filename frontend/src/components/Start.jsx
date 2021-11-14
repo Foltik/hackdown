@@ -32,14 +32,16 @@ const Start = ({ triggerUnload, triggerNextComponent }) => {
     <div className="stage-one">
       <FadeInComponent className="home-title" showComponent={showTitle}>
         <div className="home-header">
-          <img className="matchbox-logo" src={matchbox}/>
+          <img className="matchbox-logo" src={matchbox} />
           <div>Matchbox</div>
         </div>
       </FadeInComponent>
       <FadeInComponent showComponent={showDesc}>
-        Welcome to Matchbox! This is a service that will match you with companies based on your skillsets. 
-        We have sourced company data across several sources such as Glassdoor and Linkedin to aggregate popular sentiment and valued skills at each company. 
-        To begin, please submit your resume or provide a link to your LinkedIn profile!
+        Welcome to Matchbox! This is a service that will match you with
+        companies based on your skillsets. We have sourced company data across
+        several sources such as Glassdoor and Linkedin to aggregate popular
+        sentiment and valued skills at each company. To begin, please submit
+        your resume or provide a link to your LinkedIn profile!
       </FadeInComponent>
       <div className="form-container">
         <FadeInComponent showComponent={showFormOne}>
@@ -68,13 +70,11 @@ const Start = ({ triggerUnload, triggerNextComponent }) => {
           <Card className="home-card">
             <Card.Body>
               <Card.Title>Provide a link to your Linkedin profile</Card.Title>
-              <Card.Text>
-                <input
-                  type="text"
-                  id="linkedin-profile"
-                  onChange={(event) => setProfileLink(event.target.value)}
-                />
-              </Card.Text>
+              <input
+                type="text"
+                id="linkedin-profile"
+                onChange={(event) => setProfileLink(event.target.value)}
+              />
               <Button
                 onClick={(e) => {
                   e.preventDefault();

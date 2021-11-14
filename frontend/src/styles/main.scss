@@ -52,7 +52,7 @@ body,
   flex-direction: column;
 }
 .company-card-logo {
-  padding: 5px;  
+  padding: 5px;
   width: 10vh;
   height: auto;
 }
@@ -63,7 +63,7 @@ body,
   margin: 5vh 0;
 }
 .card-text {
-    width: 10vw;
+  width: 10vw;
 }
 .company-card {
   align-items: center;
@@ -92,33 +92,33 @@ body,
   font-size: 30px;
 }
 .home-card {
-    width: 25vw;
-    height: 25vh;
-    border-radius: 8px;
-    box-shadow: 2px 2px 5px #808080;
+  width: 25vw;
+  height: 25vh;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px #808080;
 }
 .card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .selector-logo {
   width: 10vh;
   height: auto;
 }
 .home-title {
-    font-size: 50px;
+  font-size: 50px;
 }
 .matchbox-logo {
-    width: 10vw;
+  width: 10vw;
 }
 .home-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    padding-right: 10vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-right: 10vw;
 }
 .container {
   display: flex;
@@ -152,6 +152,9 @@ body,
 .fadeinc {
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .chart {
@@ -165,4 +168,7 @@ body,
   width: 100px;
   height: 100%;
   background: red;
+}
+#linkedin-profile {
+  margin: 5px 0 10px 0;
 }
