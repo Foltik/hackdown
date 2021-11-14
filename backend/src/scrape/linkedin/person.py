@@ -204,13 +204,13 @@ class Person(Scraper):
                 self.add_experience(experience)
 
         # get location
-        location = driver.find_element_by_class_name(f"{self.__TOP_CARD}--list-bullet")
-        location = location.find_element_by_tag_name("li").text
-        self.add_location(location)
+        # location = driver.find_element_by_class_name(f"{self.__TOP_CARD}--list-bullet")
+        # location = location.find_element_by_tag_name("li").text
+        # self.add_location(location)
 
-        driver.execute_script(
-            "window.scrollTo(0, Math.ceil(document.body.scrollHeight/1.5));"
-        )
+        # driver.execute_script(
+        #     "window.scrollTo(0, Math.ceil(document.body.scrollHeight/1.5));"
+        # )
 
         # get education
         ## Click SEE MORE
@@ -252,53 +252,53 @@ class Person(Scraper):
                 self.add_education(education)
 
         # get interest
-        try:
-
-            _ = WebDriverWait(driver, self.__WAIT_FOR_ELEMENT_TIMEOUT).until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        "//*[@class='pv-profile-section pv-interests-section artdeco-container-card artdeco-card ember-view']",
-                    )
-                )
-            )
-            interestContainer = driver.find_element_by_xpath(
-                "//*[@class='pv-profile-section pv-interests-section artdeco-container-card artdeco-card ember-view']"
-            )
-            for interestElement in interestContainer.find_elements_by_xpath(
-                "//*[@class='pv-interest-entity pv-profile-section__card-item ember-view']"
-            ):
-                interest = Interest(
-                    interestElement.find_element_by_tag_name("h3").text.strip()
-                )
-                self.add_interest(interest)
-        except:
-            pass
+        # try:
+# 
+        #     _ = WebDriverWait(driver, self.__WAIT_FOR_ELEMENT_TIMEOUT).until(
+        #         EC.presence_of_element_located(
+        #             (
+        #                 By.XPATH,
+        #                 "//*[@class='pv-profile-section pv-interests-section artdeco-container-card artdeco-card ember-view']",
+        #             )
+        #         )
+        #     )
+        #     interestContainer = driver.find_element_by_xpath(
+        #         "//*[@class='pv-profile-section pv-interests-section artdeco-container-card artdeco-card ember-view']"
+        #     )
+        #     for interestElement in interestContainer.find_elements_by_xpath(
+        #         "//*[@class='pv-interest-entity pv-profile-section__card-item ember-view']"
+        #     ):
+        #         interest = Interest(
+        #             interestElement.find_element_by_tag_name("h3").text.strip()
+        #         )
+        #         self.add_interest(interest)
+        # except:
+        #     pass
 
         # get accomplishment
-        try:
-            _ = WebDriverWait(driver, self.__WAIT_FOR_ELEMENT_TIMEOUT).until(
-                EC.presence_of_element_located(
-                    (
-                        By.XPATH,
-                        "//*[@class='pv-profile-section pv-accomplishments-section artdeco-container-card artdeco-card ember-view']",
-                    )
-                )
-            )
-            acc = driver.find_element_by_xpath(
-                "//*[@class='pv-profile-section pv-accomplishments-section artdeco-container-card artdeco-card ember-view']"
-            )
-            for block in acc.find_elements_by_xpath(
-                "//div[@class='pv-accomplishments-block__content break-words']"
-            ):
-                category = block.find_element_by_tag_name("h3")
-                for title in block.find_element_by_tag_name(
-                    "ul"
-                ).find_elements_by_tag_name("li"):
-                    accomplishment = Accomplishment(category.text, title.text)
-                    self.add_accomplishment(accomplishment)
-        except:
-            pass
+        # try:
+        #     _ = WebDriverWait(driver, self.__WAIT_FOR_ELEMENT_TIMEOUT).until(
+        #         EC.presence_of_element_located(
+        #             (
+        #                 By.XPATH,
+        #                 "//*[@class='pv-profile-section pv-accomplishments-section artdeco-container-card artdeco-card ember-view']",
+        #             )
+        #         )
+        #     )
+        #     acc = driver.find_element_by_xpath(
+        #         "//*[@class='pv-profile-section pv-accomplishments-section artdeco-container-card artdeco-card ember-view']"
+        #     )
+        #     for block in acc.find_elements_by_xpath(
+        #         "//div[@class='pv-accomplishments-block__content break-words']"
+        #     ):
+        #         category = block.find_element_by_tag_name("h3")
+        #         for title in block.find_element_by_tag_name(
+        #             "ul"
+        #         ).find_elements_by_tag_name("li"):
+        #             accomplishment = Accomplishment(category.text, title.text)
+        #             self.add_accomplishment(accomplishment)
+        # except:
+        #     pass
 
         # get skills
         self._click_see_more_by_class_name("pv-skills-section__additional-skills")
