@@ -101,7 +101,8 @@ class Person(Scraper):
                 EC.presence_of_element_located((By.CLASS_NAME, class_name))
             )
             div = self.driver.find_element_by_class_name(class_name)
-            div.find_element_by_tag_name("button").click()
+            div.click()
+            #div.find_element_by_tag_name("button").click()
         except Exception as e:
             pass
 
@@ -299,26 +300,8 @@ class Person(Scraper):
         except:
             pass
 
-        # get connections
-        try:
-            driver.get("https://www.linkedin.com/mynetwork/invite-connect/connections/")
-            _ = WebDriverWait(driver, self.__WAIT_FOR_ELEMENT_TIMEOUT).until(
-                EC.presence_of_element_located((By.CLASS_NAME, "mn-connections"))
-            )
-            connections = driver.find_element_by_class_name("mn-connections")
-            if connections is not None:
-                for conn in connections.find_elements_by_class_name("mn-connection-card"):
-                    anchor = conn.find_element_by_class_name("mn-connection-card__link")
-                    url = anchor.get_attribute("href")
-                    name = conn.find_element_by_class_name("mn-connection-card__details").find_element_by_class_name("mn-connection-card__name").text.strip()
-                    occupation = conn.find_element_by_class_name("mn-connection-card__details").find_element_by_class_name("mn-connection-card__occupation").text.strip()
-
-                    contact = Contact(name=name, occupation=occupation, url=url)
-                    self.add_contact(contact)
-        except:
-            connections = None
-        
         # get skills
+        self._click_see_more_by_class_name("pv-skills-section__additional-skills")
         try:
             _ = WebDriverWait(driver, self.__WAIT_FOR_ELEMENT_TIMEOUT).until(
                 EC.presence_of_element_located(
@@ -328,14 +311,54 @@ class Person(Scraper):
                     )
                 )
             )
+            _ = WebDriverWait(driver, self.__WAIT_FOR_ELEMENT_TIMEOUT).until(
+                EC.presence_of_element_located((By.ID, "skill-categories-expanded"))
+            )
+
+            skillnames = set()
+
             skills = driver.find_element_by_xpath(
                 "//*[@class='pv-profile-section pv-skill-categories-section artdeco-card mt4 p5 ember-view']"
             )
-            for li in skills.find_elements_by_tag_name("li"):
-                for skill_name in li.find_elements_by_tag_name("p"):
-                    self.add_skill(skill_name)
+
+            def find_skillnames():
+                for li in skills.find_elements_by_tag_name("li"):
+                    for skill_name_wrapper in li.find_elements_by_xpath(
+                        "//div[@class='pv-skill-category-entity__skill-wrapper']"
+                    ):
+                        for skill_name in skill_name_wrapper.find_elements_by_tag_name("p"):
+                            skillnames.add(skill_name.text.strip())
+
+            find_skillnames()
+
+            skills = driver.find_element_by_xpath(
+                "//*[@class='pv-skill-category-list pv-profile-section__section-info mb6 ember-view']"
+            )
+
+            find_skillnames()
+            
+            self.skills = list([Skill(name) for name in skillnames])
         except:
             pass
+
+        # get connections
+        # try:
+        #     driver.get("https://www.linkedin.com/mynetwork/invite-connect/connections/")
+        #     _ = WebDriverWait(driver, self.__WAIT_FOR_ELEMENT_TIMEOUT).until(
+        #         EC.presence_of_element_located((By.CLASS_NAME, "mn-connections"))
+        #     )
+        #     connections = driver.find_element_by_class_name("mn-connections")
+        #     if connections is not None:
+        #         for conn in connections.find_elements_by_class_name("mn-connection-card"):
+        #             anchor = conn.find_element_by_class_name("mn-connection-card__link")
+        #             url = anchor.get_attribute("href")
+        #             name = conn.find_element_by_class_name("mn-connection-card__details").find_element_by_class_name("mn-connection-card__name").text.strip()
+        #             occupation = conn.find_element_by_class_name("mn-connection-card__details").find_element_by_class_name("mn-connection-card__occupation").text.strip()
+# 
+        #             contact = Contact(name=name, occupation=occupation, url=url)
+        #             self.add_contact(contact)
+        # except:
+        #     connections = None
 
         if close_on_complete:
             driver.quit()
