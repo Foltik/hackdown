@@ -57,9 +57,9 @@ const FullSummary = ({ companies, reviews, people }) => {
             <FadeInComponent showComponent={showGraph > 3}><div id="c" className="chart"></div></FadeInComponent>
           </div>
           <div className="chart-row">
-            <FadeInComponent showComponent={showGraph > 4}><div id="d" className="chart"></div></FadeInComponent>
-            <FadeInComponent showComponent={showGraph > 5}><div id="e" className="chart"></div></FadeInComponent>
-            <FadeInComponent showComponent={showGraph > 6}><div id="f" className="chart"></div></FadeInComponent>
+            <FadeInComponent showComponent={showGraph > 4}><div id="d" className="chart"><span>Degrees</span></div></FadeInComponent>
+            <FadeInComponent showComponent={showGraph > 5}><div id="e" className="chart"><span>Skills</span></div></FadeInComponent>
+            <FadeInComponent showComponent={showGraph > 6}><div id="f" className="chart"><span>School</span></div></FadeInComponent>
           </div>
         </div>
       </FadeInComponent>
