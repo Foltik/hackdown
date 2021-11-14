@@ -69,7 +69,7 @@ const Home = () => {
   };
 
   return (
-    <FadeInComponent showComponent={showComponent} duration={1000}>
+    <FadeInComponent className="fadeinc" showComponent={showComponent} duration={1000}>
       {components[state]}
     </FadeInComponent>
   );
