@@ -4,9 +4,9 @@ import psycopg2
 import json
 
 def transact(fn):
-    def wrapper():
+    def wrapper(*args):
         conn = psycopg2.connect(dsn=os.environ['DB_URL'], database='app')
-        res = fn(conn)
+        res = fn(conn, *args)
         conn.close()
         return res
 
@@ -22,6 +22,8 @@ def api(fn):
             pass
 
         resp = fn(self, body)
-        self.write(json.dumps(resp))
+
+        if resp is not None:
+            self.write(json.dumps(resp))
 
     return wrapper
