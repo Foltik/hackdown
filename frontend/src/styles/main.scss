@@ -52,6 +52,7 @@ body,
   flex-direction: column;
 }
 .company-card-logo {
+  padding: 5px;  
   width: 10vh;
   height: auto;
 }
@@ -61,10 +62,13 @@ body,
   justify-content: space-between;
   margin: 5vh 0;
 }
-
+.card-text {
+    width: 10vw;
+}
 .company-card {
   align-items: center;
-  padding: 8px;
+  box-sizing: border-box;
+  padding: 6vw;
   height: 20vh;
   width: 20vh;
   justify-content: center;
@@ -82,4 +86,15 @@ body,
 }
 .matches-title {
   font-size: 30px;
+}
+.home-card {
+    width: 25vw;
+    height: 25vh;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px #808080;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

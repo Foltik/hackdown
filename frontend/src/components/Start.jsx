@@ -1,5 +1,5 @@
-import { Button } from "react-bootstrap";
 import React from "react";
+import { Card, Button } from "react-bootstrap";
 import submitLinkedin from "../api/submitLinkedin";
 import submitResumeAPI from "../api/submitResume";
 import FadeInComponent from "./FadeInComponent";
@@ -35,44 +35,48 @@ const Start = ({ triggerUnload, triggerNextComponent }) => {
       </FadeInComponent>
       <div className="form-container">
         <FadeInComponent showComponent={showFormOne}>
-          <form>
-            <label htmlFor="resume-upload">Submit your resume</label>
-            <input
-              type="file"
-              id="resume-upload"
-              onChange={(event) => setResumeFile(event.target.files[0])}
-            />
-            <Button
-              variant="outline-secondary"
-              onClick={(e) => {
-                e.preventDefault();
-                submitAction("resume");
-              }}
-            >
-              Submit Resume
-            </Button>
-          </form>
+          <Card className="home-card">
+            <Card.Body>
+              <Card.Title>Submit your resume</Card.Title>
+              <Card.Text>
+                <input
+                  type="file"
+                  id="resume-upload"
+                  onChange={(event) => setResumeFile(event.target.files[0])}
+                />
+              </Card.Text>
+              <Button
+                onClick={(e) => {
+                  e.preventDefault();
+                  submitAction("resume");
+                }}
+              >
+                Submit Resume
+              </Button>
+            </Card.Body>
+          </Card>
         </FadeInComponent>
         <FadeInComponent showComponent={showFormTwo}>
-          <form>
-            <label htmlFor="linkedin-profile">
-              Provide a link to your Linkedin profile
-            </label>
-            <input
-              type="text"
-              id="linkedin-profile"
-              onChange={(event) => setProfileLink(event.target.value)}
-            />
-            <Button
-              variant="outline-secondary"
-              onClick={(e) => {
-                e.preventDefault();
-                submitAction("linkedin");
-              }}
-            >
-              Submit Linkedin Profile
-            </Button>
-          </form>
+          <Card className="home-card">
+            <Card.Body>
+              <Card.Title>Provide a link to your Linkedin profile</Card.Title>
+              <Card.Text>
+                <input
+                  type="text"
+                  id="linkedin-profile"
+                  onChange={(event) => setProfileLink(event.target.value)}
+                />
+              </Card.Text>
+              <Button
+                onClick={(e) => {
+                  e.preventDefault();
+                  submitAction("linkedin");
+                }}
+              >
+                Submit Linkedin Profile
+              </Button>
+            </Card.Body>
+          </Card>
         </FadeInComponent>
       </div>
     </div>
