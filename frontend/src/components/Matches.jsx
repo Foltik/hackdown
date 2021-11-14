@@ -8,7 +8,7 @@ const CompanyCard = ({ companyName, matchPercentage, imageLogo, index }) => {
   setTimeout(() => setShowCard(true), 500 + (4 - index) * 1000);
   return (
     <FadeInComponent showComponent={showCard}>
-      <Card bg="dark" className="company-card">
+      <Card className="company-card">
         <Card.Img
           className="company-card-logo"
           src={imageLogo}
@@ -43,7 +43,7 @@ const Matches = ({
 
   return (
     <div className="stage-two">
-      <FadeInComponent showComponent={showTitle}>
+      <FadeInComponent showComponent={showTitle} className="matches-title">
         These are your top four matches:
       </FadeInComponent>
       <div className="card-container">
@@ -59,7 +59,7 @@ const Matches = ({
         })}
       </div>
       <FadeInComponent showComponent={showNextButton}>
-        <Button variant="outline-secondary">Continue to full summary</Button>
+        <Button className="summary-button">Continue to full summary</Button>
       </FadeInComponent>
     </div>
   );

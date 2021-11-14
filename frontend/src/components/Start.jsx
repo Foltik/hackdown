@@ -1,3 +1,4 @@
+import { Button } from "react-bootstrap";
 import React from "react";
 import submitLinkedin from "../api/submitLinkedin";
 import submitResumeAPI from "../api/submitResume";
@@ -41,14 +42,15 @@ const Start = ({ triggerUnload, triggerNextComponent }) => {
               id="resume-upload"
               onChange={(event) => setResumeFile(event.target.files[0])}
             />
-            <button
+            <Button
+              variant="outline-secondary"
               onClick={(e) => {
                 e.preventDefault();
                 submitAction("resume");
               }}
             >
               Submit Resume
-            </button>
+            </Button>
           </form>
         </FadeInComponent>
         <FadeInComponent showComponent={showFormTwo}>
@@ -61,14 +63,15 @@ const Start = ({ triggerUnload, triggerNextComponent }) => {
               id="linkedin-profile"
               onChange={(event) => setProfileLink(event.target.value)}
             />
-            <button
+            <Button
+              variant="outline-secondary"
               onClick={(e) => {
                 e.preventDefault();
                 submitAction("linkedin");
               }}
             >
               Submit Linkedin Profile
-            </button>
+            </Button>
           </form>
         </FadeInComponent>
       </div>

@@ -6,6 +6,7 @@ body,
   font-family: "Poppins", sans-serif;
   height: 100%;
   width: 100%;
+  background-color: #ebebeb;
 }
 .stage-one {
   display: flex;
@@ -26,12 +27,11 @@ body,
   justify-content: space-between;
   height: 20vh;
   padding: 20px;
-  border: white 2px solid;
+  border: black 2px solid;
   border-radius: 9px;
 }
 .App {
-  background-color: black;
-  color: white;
+  color: black;
   height: 100%;
   width: 100%;
   display: flex;
@@ -59,14 +59,27 @@ body,
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin: 5vh 0;
 }
+
 .company-card {
   align-items: center;
   padding: 8px;
   height: 20vh;
   width: 20vh;
   justify-content: center;
+  border-radius: 8px;
+  box-shadow: 3px 3px 5px #808080;
 }
 .company-card > div {
   flex: 0 0 auto;
+}
+.summary-button {
+  width: 15vw;
+  height: 5vh;
+  font-size: 18px;
+  border-radius: 8px;
+}
+.matches-title {
+  font-size: 30px;
 }
