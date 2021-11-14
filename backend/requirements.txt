@@ -6,3 +6,5 @@ selenium==4.0.0
 requests==2.25.1
 lxml==4.6.3
 parse==1.19.0
+praw====7.5.0
+vadersentiment==3.3.2
