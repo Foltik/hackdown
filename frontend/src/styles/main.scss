@@ -1,1 +1,72 @@
 @import "~bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+html,
+body,
+#root {
+  font-family: "Poppins", sans-serif;
+  height: 100%;
+  width: 100%;
+}
+.stage-one {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 60vh;
+  width: 60vw;
+}
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20vh;
+  padding: 20px;
+  border: white 2px solid;
+  border-radius: 9px;
+}
+.App {
+  background-color: black;
+  color: white;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.company-logo {
+  width: 5vh;
+  height: auto;
+}
+.stage-two {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+}
+.skills-container {
+  display: flex;
+  flex-direction: column;
+}
+.company-card-logo {
+  width: 10vh;
+  height: auto;
+}
+.card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.company-card {
+  align-items: center;
+  padding: 8px;
+  height: 20vh;
+  width: 20vh;
+  justify-content: center;
+}
+.company-card > div {
+  flex: 0 0 auto;
+}
