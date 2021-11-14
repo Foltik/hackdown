@@ -18,8 +18,9 @@ password = "yEasDpHvcwnrA4G"
 def login():
     actions.login(driver, email, password)
 
-def scrape_company(url: str):
+def scrape_company(url: str) -> list:
     company = Company(url, driver=driver)
+    return list([employee for employee in company.employees if employee is not None])
 
 def scrape_person(url: str) -> LinkedInUser:
     person = Person(url, driver=driver)
@@ -57,5 +58,5 @@ def scrape_person(url: str) -> LinkedInUser:
 
 if __name__ == "__main__":
     login()
-    print(scrape_person("https://www.linkedin.com/in/jscheire"))
+    print(scrape_person("https://www.linkedin.com/in/smax253"))
     
