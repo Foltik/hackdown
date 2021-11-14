@@ -48,19 +48,21 @@ class MainHandler(tornado.web.RequestHandler):
 
 class ResumeHandler(tornado.web.RequestHandler):
     @api
-    def post(self):
+    def post(self, body):
         file = self.request.files['resume'][0]
 
         name = file['filename']
         body = file['body']
+        data = None
 
-        with tempfile.TemporaryFile() as temp:
+        with open('temp.pdf', 'w+b') as temp:
             temp.write(body)
-            resume = ResumeParser(temp.name)
-            print(resume)
+            data = ResumeParser(temp.name).get_extracted_data()
+            os.unlink(temp.name)
 
         print("file:", file)
         print("name:", name)
+        print("data:", data)
 
         return {'id': 177013}
 
