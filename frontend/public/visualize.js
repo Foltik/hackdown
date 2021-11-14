@@ -391,7 +391,7 @@ dc.wordCloud = function(parent, chartGroup) {
     return _chart.anchor(parent, chartGroup);
 };
 
-const data = {
+let data = {
     "reviews": [
       {
         "company": "netflix",
@@ -1870,13 +1870,21 @@ const data = {
 
 ]};
 
+data.people = data.people.map(p => {
+    let sch = 'None';
+    if (p.schools_attended && p.schools_attended[0])
+        sch = p.schools_attended[0];
+
+    return {...p, school: sch};
+})
+
 let f = (a, b) => [].concat(...a.map(a => b.map(b => [].concat(a, b))));
 let cartesian = (a, b, ...c) => b ? cartesian(f(a, b), ...c) : a;``
 
 const rndx = crossfilter(data.reviews);
 const pndx = crossfilter(data.people.reduce((acc, p) => [
     ...acc,
-    ...cartesian(p.degrees, p.skills).map(([degree, skill]) => ({id: p.id, company: p.company, degree, skill}))
+    ...cartesian(p.degrees, p.skills).map(([degree, skill]) => ({id: p.id, company: p.company, school: p.school, degree, skill}))
 ], []));
 
 const company_dim_r = rndx.dimension(d => d.company);
@@ -1896,8 +1904,12 @@ const degree_group = degree_dim.group();
 const skill_dim = pndx.dimension(d => d.skill);
 const skill_group = skill_dim.group();
 
-const school_dim = pndx.dimension(d => d.schools_attended?.length ? d.schools_attended[0] : 'None');
-const school_group = skill_dim.group();
+const school_dim = pndx.dimension(d => d.school);
+const school_group = school_dim.group();
+
+const month_dim = rndx.dimension(d => ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"][(new Date(d.date * 1000)).getMonth()]);
+const month_group = month_dim.group();
 
 window.dostuff = () => {
     dc.wordCloud('#a')
@@ -1908,10 +1920,20 @@ window.dostuff = () => {
 
     // dc.barChart('#b');
 
-    // dc.barChart('#c')
-    //     .width(480)
-    //     .height(350)
-    //     .legend(dc.legend())
+//     dc.barChart('#c')
+//         .width(480)
+//         .height(350)
+//         .dimension(month_dim)
+//         .group(month_group)
+//         .x(d3.scaleBand().domain(["January", "February", "March", "April", "May", "June",
+//   "July", "August", "September", "October", "November", "December"]));
+
+    dc.pieChart('#c')
+        .width(480)
+        .height(350)
+        .legend(dc.legend())
+        .dimension(month_dim)
+        .group(month_group);
 
     dc.pieChart('#d')
         .width(480)
