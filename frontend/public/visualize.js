@@ -1896,10 +1896,10 @@ window.dostuff = () => {
 
     // dc.barChart('#b');
 
-    dc.barChart('#c')
-        .width(480)
-        .height(350)
-        .legend(dc.legend())
+    // dc.barChart('#c')
+    //     .width(480)
+    //     .height(350)
+    //     .legend(dc.legend())
 
     dc.pieChart('#d')
         .width(480)
